@@ -194,41 +194,41 @@
 </template>
 
 <script setup>
-// new Vue({
-//   el: "#app",
-//   data() {
-//     return {
-//       cep: "",
-//       district: "",
-//       street: "",
-//       city: "",
-//       response: null,
-//       baseUrl: "https://viacep.com.br/ws/",
-//     };
-//   },
-//   methods: {
-//     getCep() {
-//       const url = `${this.baseUrl}${this.cep}/json/`;
-//       axios
-//         .get(url)
-//         .then((resp) => {
-//           const data = resp.data;
-//           if (!data.erro) {
-//             this.response = data;
-//           } else {
-//             alert("Cep não encontrado");
-//           }
-//         })
-//         .catch((error) => {
-//           console.error(error);
-//         });
-//     },
-//   },
-//   watch: {
-//     cep: function (novoCep, velhoCep) {
-//       if (novoCep.length === 8) this.getCep();
-//       else this.response = null;
-//     },
-//   },
-// });
+ new Vue({
+   el: "#app",
+   data() {
+     return {
+       cep: "",
+       district: "",
+       street: "",
+       city: "",
+       response: null,
+       baseUrl: "https://viacep.com.br/ws/",
+     };
+   },
+   methods: {
+     getCep() {
+       const url = `${this.baseUrl}${this.cep}/json/`;
+       axios
+         .get(url)
+         .then((resp) => {
+           const data = resp.data;
+           if (!data.erro) {
+             this.response = data;
+           } else {
+             alert("Cep não encontrado");
+           }
+         })
+         .catch((error) => {
+           console.error(error);
+         });
+     },
+   },
+   watch: {
+     cep: function (novoCep, velhoCep) {
+       if (novoCep.length === 8) this.getCep();
+       else this.response = null;
+     },
+   },
+ });
 </script>
